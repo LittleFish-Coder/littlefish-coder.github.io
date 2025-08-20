@@ -1,0 +1,45 @@
+# Site settings
+title: Chen-Yang Yu | LittleFish Coder
+email: your-email@example.com
+description: >-
+  Personal website showcasing my projects and journey as a developer.
+  Welcome to my coding adventures!
+baseurl: ""
+url: "https://littlefish-coder.github.io"
+twitter_username: 
+github_username: LittleFish-Coder
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
