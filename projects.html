@@ -1,0 +1,86 @@
+---
+layout: default
+title: Projects
+---
+
+<div class="projects-page">
+    <header class="page-header">
+        <h1>My Projects</h1>
+        <p>A collection of my coding adventures and experiments</p>
+    </header>
+
+    <div class="projects-grid">
+        {% for project in site.projects %}
+        <div class="project-card">
+            <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+            <p>{{ project.description | truncate: 120 }}</p>
+            {% if project.technologies %}
+            <div class="project-tech">
+                {% for tech in project.technologies %}
+                <span class="tech-tag">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="project-links">
+                {% if project.github_url %}
+                <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                {% endif %}
+                {% if project.demo_url %}
+                <a href="{{ project.demo_url }}" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> Demo
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    {% if site.projects.size == 0 %}
+    <div class="empty-state">
+        <h2>Projects Coming Soon!</h2>
+        <p>I'm working on some exciting projects. Check back soon to see my latest work!</p>
+        <a href="{{ site.github_username | prepend: 'https://github.com/' }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fab fa-github"></i> View GitHub Profile
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+.page-header {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: #f8fafc;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.page-header p {
+    font-size: 1.25rem;
+    color: #64748b;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-state h2 {
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.empty-state p {
+    margin-bottom: 2rem;
+    color: #64748b;
+    font-size: 1.125rem;
+}
+</style>
